@@ -62,12 +62,12 @@
      function winnerCheck(){
      var result ="no winner";
 
-     if(player1[0] < 1 && player2[0] < 1){
+     if(player1[2] < 1 && player2[2] < 1){
      result="You Both Die";
-     }else if(player1[0] < 1){
-     result = player2[0]+ "Wins!!";
-     }else if(player2[0] < 1){
-     result = player1[0]+ "Wins!!";
+     }else if(player1[2] < 1){
+     result = player2[2]+ "Wins!!";
+     }else if(player2[2] < 1){
+     result = player1[2]+ "Wins!!";
      };
      return result;
      };
