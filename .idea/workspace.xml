@@ -26,30 +26,10 @@
       <file leaf-file-name="search.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wk1/goal3_assign_debug_v2/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="38" selection-start="3345" selection-end="3345" vertical-scroll-proportion="0.6373057" vertical-offset="1371" max-vertical-offset="1950">
+            <state line="123" column="0" selection-start="3537" selection-end="3537" vertical-scroll-proportion="0.81865287" vertical-offset="1371" max-vertical-offset="1950">
               <folding>
                 <marker date="1394588821000" expanded="false" signature="2140:2155" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wk1/goal2_assign_duel2/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="42" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wk1/goal3_assign_debug_v2/js/database.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="32" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -142,46 +122,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pwa1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pwa1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wk1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="goal2_assign_duel2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pwa1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pwa1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wk1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="goal2_assign_duel2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -193,7 +133,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/wk1/goal3_assign_debug_v2/js/database.js" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/goal3_assign_debug_v2/js/search.js" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
@@ -406,16 +346,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/goal3_assign_debug_v2/js/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1875">
+          <folding>
+            <marker date="1371240462000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wk1/goal3_assign_debug_v2/js/database.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="32" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+        <state line="7" column="24" selection-start="576" selection-end="576" vertical-scroll-proportion="0.18134715" vertical-offset="0" max-vertical-offset="579">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wk1/goal2_assign_duel2/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="42" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
+        <state line="71" column="19" selection-start="2002" selection-end="2002" vertical-scroll-proportion="0.6632124" vertical-offset="681" max-vertical-offset="1260">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -424,7 +373,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wk1/goal3_assign_debug_v2/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="38" selection-start="3345" selection-end="3345" vertical-scroll-proportion="0.6373057" vertical-offset="1371" max-vertical-offset="1950">
+        <state line="123" column="0" selection-start="3537" selection-end="3537" vertical-scroll-proportion="0.81865287" vertical-offset="1371" max-vertical-offset="1950">
           <folding>
             <marker date="1394588821000" expanded="false" signature="2140:2155" placeholder="..." />
           </folding>

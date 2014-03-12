@@ -62,8 +62,8 @@
      function winnerCheck(){
      var result ="no winner";
 
-     if(player1[2] < 1 && player2[2] < 1){
-     result="You Both Die";
+     if(player1[2] < 1 && player2[2] < 1){  //needed to change if(player1[0]< 1 && player2[0] < 1) to ...
+     result="You Both Die";                 //.. if(player1[2] < 1 && player2[2] < 1).    player1[2]represents health
      }else if(player1[2] < 1){
      result = player2[2]+ "Wins!!";
      }else if(player2[2] < 1){
