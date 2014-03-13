@@ -1,3 +1,10 @@
+/*
+ Name: Angelica Dinh
+ Date: March 11, 2014
+ Class: PWA1-01
+ Assignment: Goal 2_assign_JSpractice
+ */
+
 // self-executing function
 (function(){
 
@@ -48,9 +55,10 @@
     var avgNumbers = function(arr){
         var sum = 0;
             for(var i = 0, j = arr.length; i<j; i++){ // 0+ < (1-5); 0++
-                console.log("Sum += arr:", sum += arr[i]); //0+1 = 1, 1+2 = 3, 3+3=6, 6+4=10, 10+5=15
+                sum += arr[i];
             };
-        return sum / arr.length;
+        var total = sum/arr.length;
+        return total;
     };
     console.log('avg number = ', avgNumbers([1,2,3,4,5]));
 
@@ -113,12 +121,15 @@
    console.log("6. find number and create an array of even or odd numbers");
 
     function findNum(arrOfNum, boolean){
-        if(arrOfNum%2==0){
-            return "even"
+        if(boolean === false){
+            arrOfNum.filter(findNum())
+            return (arrOfNum % 2 !==0);
         }else{
-            return "odd"
+          arrOfNum.filter(findNum())
+            return (arrOfNum % 2 == 0);
         };
     };
+
 
     console.log(findNum([31,22,4,67,83,6,5,4]));
     console.log(findNum([31,22,4,67,83,6,5,4], false));
