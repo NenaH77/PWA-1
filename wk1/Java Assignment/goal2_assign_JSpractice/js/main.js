@@ -129,10 +129,6 @@
             return (arrOfNum % 2 == 0);
         };
     };
-
-
     console.log(findNum([31,22,4,67,83,6,5,4]));
     console.log(findNum([31,22,4,67,83,6,5,4], false));
-
-
 })();

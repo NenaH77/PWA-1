@@ -302,38 +302,58 @@ console.log('------------ DOM Events -------------------');
 	[A-Z]		would match any upper case letter
 	[a-zA-Z]	would match any letter
 	[^..]		any one character not between the brackets - [^a-zA-Z]  would match any non-letter
+
+
+	//special RegEx examples
+	/[Jj]ava[Ss]cript/ - matches 'Javascript', 'JavaScript', 'javascript', or 'javaScript'
+	/^(Java)?Script$/ - matches 'JavaScript' or "Script" .. but not "JavaJavaScript"
+	/^[a-zA-Z\^\-\.]+$/ - matches 1 or more of only letters
+	Combining character sets can create sequences of matches:
+	/^[a-zA-Z]+[0-9]$/ - mathces 1 or more letters at the beginning, and 1 number at the end - would match 'mike1',
+	  but not 'mike11' or '11mike'
+	most often, validation sets consist of multiple classes like the above
  */
 
 console.log('------------ Regular Expressions -------------------');
+
+var emailRegEx = /^[\w\.\-]+@([\w\-]+\.)+[a-zA-Z]+$/;
+
+var email = new RegExp('pattern');
+
+//if you wnt to use emailRegEx with new RegExp you setup
+var email = new RegExp(emailRegEx);
 
 /******************************************************************************
 STUDENT ACTIVITY
 
 	1.  Write a RegEx for a basic name (containing only letters)
 
-		Answer: 
+		Answer: /^[a-zA-Z]+$/
 
 	2.  What are the possible answers for this: /[Jj]ava[Ss]cript/
 
-		Answer: 
+		Answer: 'javascript', 'JavaScript', 'Javascript', 'javaScript'
 
 	3. 	What are the possible answers for this: /^(Java)?Script$/
 
-		Answer: 
+		Answer: JavaScript, Script
 
 	4. 	Describe the possible answer for this: /^[a-zA-Z\^\-\.]+$/
 
-		Answer: 
+		Answer: Mathces 1 or more of only letters
 
 	5.	Combining character sets can create sequences of matches.
 		
 		Describe the possible answers for this: /^[a-zA-Z]+[0-9]$/ 	
 
-		Answer: 
+		Answer: Matches 1 or more letter in the beginning and 1 or more numbers for the end.
 
 ----------------------------------------------------------------------------- */
 
 /*
+
+    Look at regexlib.com for RegExp
+
 	most often, validation sets consist of multiple classes like the above
 
 	//methods
@@ -345,11 +365,34 @@ STUDENT ACTIVITY
 	replace()	string.replace.(RegExp): matches the given string, and returns the edited string
 	split()		string.split.(RegExp): cuts a string into an array, making cuts at matches
 */
+    var emailRegEx = /(\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3})/;
+    var email = new RegExp(emailRegEx);
+    var str = "my personal email is jc@google.com but my work email is jc@fullsail.com";
+
+    console.log(emailRegEx.exec(str));
+    console.log(emailRegEx.test(str));
+    console.log(str.search(emailRegEx));
+
+    var clean = str.replace(emailRegEx,"XXX@XXX.com");
+    console.log(clean);
+
+    var clean = clean.replace(emailRegEx,"jc@gmail.com");
+    console.log(clean);
+
+    console.log(str.match(emailRegEx));
 
 
+    console.log(email.test(str));
+    console.log(str.search(email));
 
+    var clean = str.replace(/(\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3})/g, "XXX@XXX.com");//g, means global
+    console.log(clean);
 
+    var clean = clean.replace(/(\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3})/g,"jc@fullsail.com");
+    console.log(clean);
 
+    console.log(str.match(email));
+    console.log(str.match(/(\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3})/g));
 
 /* 
 	// RegExp metaCharacters
@@ -388,7 +431,11 @@ STUDENT ACTIVITY
 		Answer: 
 	
 ----------------------------------------------------------------------------- */
+    console.log('phone formats: (123) 456-7890 | 123-456-7890');
+    console.log('((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}');
 
+    console.log('phone formats: (573)8841878 | 573-884-1234 | 573 234 1256');
+    console.log('^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$');
 
 /*	==================================================================
 	Math Methods
@@ -401,6 +448,19 @@ STUDENT ACTIVITY
 
     console.log('------------ Math Methods -------------------');
 
+    console.log(document.getElementById('tagbox').innerHTML=Math.random());
+
+    //Random Numbers
+    var rand = (Math.random()* 10 + 1);
+    console.log("rand:", rand);
+
+    //Create an Integer using Random Number
+    var num = Math.floor(rand);
+    console.log("Integer:", num);
+
+    //Find the Max Number and Rounding
+    console.log(document.getElementById("tagbox").innerHTML = Math.min(5,10));
+    console.log(document.getElementById("tagbox").innerHTML=Math.round(2.5));
 
 
     /******************************************************************************
@@ -419,8 +479,19 @@ STUDENT ACTIVITY
 
     ****************************************************************************/
 
+console.log('Max:', Math.max(100, 1000, 50, 2, 55, 75));
+console.log('Min:',Math.min(100, 1000, 50, 2, 55, 75));
 
+console.log(Math.floor(Math.random()* 10000 + 100));
 
+var num = (Math.random()* 100 + 10);
+console.log('random#:', num);
+
+var num2 = (Math.round(num));
+console.log('random# round:', num2);
+//or you could do....
+console.log(Math.random()* 100 + 10);
+console.log('random round:', Math.round(Math.random()* 100 + 10));
 
 /*	==================================================================
 	Date Methods
@@ -430,12 +501,26 @@ STUDENT ACTIVITY
 	Date objects can be created with a “new Date( )” 
 
 	popular date methods: date( ), getFullYear( ), setFullYear( ), getTime( ), getDay( )
-
 */
-
     console.log('------------ Date Methods -------------------');
 
+    console.log(new Date());
 
+    var d = new Date();
+    console.log('Date', d.getDate());
+    console.log('Day of the Week', d.getDay());
+    console.log('Full Year', d.getFullYear());
+    console.log('Hour', d.getHours());
+    console.log('Milliseconds', d.getMilliseconds());
+    console.log('Millisec count of Time from Jan 1, 1970', d.getTime());
 
+    console.log('Set Full Year to 2021', d.setFullYear(2021, 0, 01));
+    document.getElementById("tagbox").innerHTML=d;
+
+    var d = new Date();
+    console.log(d.toLocaleDateString());
+
+    console.log(typeof d.toString());
+    console.log(d.toString());
 
 })(); // end wrapper

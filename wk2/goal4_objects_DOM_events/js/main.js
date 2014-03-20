@@ -30,7 +30,9 @@ console.log('------Objects ----------');
 
 //{KEY : Value} pairings,
 
+    person = {'name':'bond', 'age':35, 'secretAgent':true}; //obj r defined w/ {}
 
+    person = {name:'bond', age:35, secretAgent:true};
 
 /* accessing object properties
      - below are 3 ways you can access the property information in an object
@@ -41,14 +43,20 @@ console.log('------Objects ----------');
      - also keep in mind that since the keys can be strings, you could access the keys using string variables
  */
 
+    var personAge = 'age';
+
+    console.log(person.name, person[personAge], person['secretAgent']);
 
 // setter
-
-
+person['age'] = '40';//object[key]=set to 40
+person.name = 'JamesBond';
+console.log(person);
 
 //nested objects
-
-
+person = {birthday:{month:02,day:12}, name:'bond'}; //object within an object
+console.log(person);
+console.log(person['birthday']['month']);
+console.log(person.birthday.month);
 
 //---------------------------------------------
 
@@ -56,7 +64,22 @@ console.log('------Objects ----------');
 
 console.log('------Object within an object, Arrays, Function ----------');
 
-
+    var thatGuy = {
+        name:'JamesBond',
+        course:'PWA1',
+        address: {
+            num:3300,
+            street: 'University',
+            city:'Orlando',
+            cornerOf:['University', 'Semoran']
+        },
+        showMyAddress : function(){
+            var addr = this.address.street + ',' + this.address.city;
+            return addr;
+        }
+    };
+    console.log('console.log with function:', thatGuy.showMyAddress());
+    console.log('console.log without function:',thatGuy.address.street + ' '+ thatGuy.address.city);
 
 //properties & methods
 /*
@@ -69,9 +92,18 @@ console.log('------Object within an object, Arrays, Function ----------');
 console.log('------Objects - properties & methods ----------');
 
 //Method 1 "Basic"
+    var fsStudent = {};
+    fsStudent.age = 22;
+    fsStudent.career = 'Web Dev';
+    fsStudent.sayHello = function(){ //method is a key that has a function associated with it
+        console.log('Hello!');
+    };
 
+    fsStudent.sayHello();
+    fsStudent['sayHello'](); //targeting the item in the []
 
-
+    console.log(fsStudent.age);
+    console.log(fsStudent['age']);
 
 // above, we first initialize the object, then we created 2 properties 
 //   for the object, and a method called sayHello - notice that the method is 
@@ -79,9 +111,6 @@ console.log('------Objects - properties & methods ----------');
 
 // we can also access the methods and properties of an object using  [ ] , 
 // 	by using their name as a string - all of the below are valid:
-
-
-
 
 /* --------------
 Method 2 "OBJECT Literal"
@@ -91,9 +120,19 @@ Method 2 "OBJECT Literal"
 
 	- below is the same object as in Method 1
 */
+    var fsStudnet = {
+        age: 22,
+        career: 'Web Dev',
+        sayHello: function(){
+            console.log('hello!!!!');
+        }
+    };
 
+    fsStudent.sayHello();
+    fsStudent['sayHello'](); //targeting the item in the []
 
-
+    console.log(fsStudent.age);
+    console.log(fsStudent['age']);
 
 //---------------------------------------------
 
@@ -123,8 +162,26 @@ STUDENT ACTIVITY 1:
 console.log('------ STUDENT ACTIVITY - ANSWERS BELOW ----------');
 
 // this is integrating multiple data types - object with an array of objects
+var obj1 = {
+    schoolName:"Full Sail",
+    address:"123 University Ave",
+    studentCount: 16000,
+    students: [
+        {name:"Jane Doe", GPA:2.6, classes:["PWA1", "PWA2"]},
+        {name:"Albert Einstein", GPA:4.0}, {name:"James Bond", GPA:3.9}
+    ]
+};
+    console.log(obj1.schoolName);//dot syntax
+    console.log(obj1['schoolName']);//index syntax
 
+    var newCnt = "studentCount";
+    console.log(obj1[newCnt]);//use our new variable which = studentCount as an index to our object
 
+    var fieldName1 = "address";
+    console.log(obj1[fieldName1]);
+
+    console.log("James Bond's GPA:", obj1.students[2].GPA);//dot syntax
+    console.log("James Bond's GPA:", obj1['students'][2]['GPA']);//index syntax
 
 /* ----------------------------------------------------------------------------
  STUDENT ACTIVITY 2:
@@ -137,9 +194,17 @@ console.log('------ STUDENT ACTIVITY - ANSWERS BELOW ----------');
 
     2.  console.log the average grade by calling the gradeAvg method.
 ----------------------------------------------------------------------------- */
+    var gradeAve = function(obj){
+        var count = 0;
+        var total = 0;
 
-
-
+        for(i=0, j= obj.students.length; i<j; i++){
+            count++; //helps us calculate the average GPA
+            total = total + obj.students[i]['GPA'];//calculate what the total is as for loop cycles through
+        };
+        return total/count;
+    };
+    console.log('Average Grade:', gradeAve(obj1));
 
 /* ===============================================================
 	The for-in object loop
@@ -151,11 +216,15 @@ console.log('------ STUDENT ACTIVITY - ANSWERS BELOW ----------');
 */
     console.log("---------- Object - For In Loop ----------------");
 
+    var students = {name:"JamesBond", gender:"male", job:"student"};//keys = name, gender and job
 
-
+    for (var key in students){//student = object
+        console.log('Key Name:', key);//should return what each key is
+        console.log('Value of the key[',key,']:', students[key]);//what is the value of each of the keys
+    };
 /*
 	===============================================
-	MORE Object infomation
+	MORE Object information
 	
 		- most strictly-typed languages have clear separations in their data types 
 			and classical behavior
@@ -185,8 +254,11 @@ console.log('------ STUDENT ACTIVITY - ANSWERS BELOW ----------');
 			- using these constructors, we can also convert from one data type to another.
 */
     console.log('------ Objects - Converting Datatypes ----------');
-
-
+var myNum = 1;
+myString = String(myNum);//converting myNum to a string
+console.log('myString', typeof myString, myString);
+myBool = Boolean(myString);//in boolean 1 = true and 0 = false
+console.log('myBool:,', typeof myBool, myBool);
 
 /*
 	- because these values act as objects, the data types also have methods and 
@@ -196,19 +268,44 @@ console.log('------ STUDENT ACTIVITY - ANSWERS BELOW ----------');
 */
 
 // #1 - shows string length
-
+myStr = 'OMG';
+console.log(myStr.length);
 
 // #2 - shows array length
-	
+myArr = [6,10];
+console.log(myArr.length);
 
 // #3 - shows and array of objects, inside of an object length
-	
+var obj1 = {
+    schoolName:'Full Sail',
+    address:'123 University Blvd',
+    StudentCount: 16000,
+    students:[
+        {name:'Jane Doe', GPA: 2.6, classes:['PWA1,','ARD']},
+        {name: 'Albert Einstein', GPA:4.0},
+        {name:'James Bond', GPA: 3.9}
+        ]
+};
+    console.log('number of object fields',  obj1.students.length);//what is the length of the students array
+
 
 console.log('------ MORE Object examples - Objects/Functions ----------');
 
 // showing a function call and creating a method
+//****this is how a .length may be in a function****
 
+var fn = function(name, course){//passing parameters into a function
+    //if I wanted for this function to output a console.log of .length of an array or string, we create...
+    return {
+        sayHi:function(){//is my method(methods are functions that run to do something. ex: alert())
+            console.log('My name is ' + name + ', I am in course ' + course);
+        }
+    }
+};
+fn('JamesBond', 'PWA1').sayHi();
 
+//call to the function must have 2 parameters cuz we have 2 parameters in our function
+//if you want to call the method sayHi add fn().sayHi()
 
 /*
 	==================================================================
@@ -217,22 +314,24 @@ console.log('------ MORE Object examples - Objects/Functions ----------');
 
 	document	// global DOM object
 	window		// global DOM object
+
+ To review items: http://www.w3schools.com/jsref/obj_window.asp
+                  http://www.w3schools.com/dom/dom_node.asp
 */
 console.log('------------ DOCUMENT OBJECT MODEL -------------------');
 
 //Window DOM object
-/*
+
  console.log(window);
  console.log(window.location);
  console.log(window.history);
  console.log(window.navigator);
 
- //Document DOM object
+ //Document DOM object            //think of content that is sittings on the page/browser
+
  console.log(document);
  console.log(document.body);
  console.log(document.head);
- */
-
 
 /*
 	==================================================================
@@ -252,9 +351,9 @@ console.log('------------ DOCUMENT OBJECT MODEL -------------------');
 
 console.log('------------ getElementById -------------------');
 
-
-
-
+    var playbox = document.getElementById('playbox');
+    console.log(playbox);
+    playbox.style.backgroundColor = 'Red';
 /*
 	==================================================================
 	document.getElementsByTagName(string);
@@ -265,9 +364,14 @@ console.log('------------ getElementById -------------------');
 
 console.log('------------ getElementsByTagName -------------------');
 
+    var anchors = document.getElementsByTagName('a');
+    console.log(anchors);
 
+    console.log(anchors[1]);
 
-
+    for(i=0, max=anchors.length; i<max; i++){
+        console.log(anchors[i]);
+    }
 /*
 	==================================================================
 	document.querySelectorAll(string);
@@ -281,9 +385,17 @@ console.log('------------ getElementsByTagName -------------------');
 
 console.log('------------ querySelectorAll -------------------');
 
+    var nav = document.querySelectorAll(('#nav'));//ID uses #, class uses .//filters the div #nav
+    console.log(nav);
 
+    var navLi = document.querySelectorAll(('#nav li'));//filters to all the li links
+    console.log(navLi);
 
+    var navLiLastChild = document.querySelectorAll(('#nav li:last-child'));//filters to the last link Google
+    console.log(navLiLastChild);
 
+    var cf = document.querySelectorAll('.clearfix');//filters the ul .class
+    console.log(cf);
 /*
 	==================================================================
 	document.querySelector(string);
@@ -295,9 +407,8 @@ console.log('------------ querySelectorAll -------------------');
 */
     console.log('------------ querySelector -------------------');
 
-
-
-
+    var nav = document.querySelector('#nav');
+    console.log(nav);
 
     /*
         ==================================================================
@@ -320,8 +431,15 @@ console.log('------------ querySelectorAll -------------------');
     */
     console.log('------------ TRAVERSAL -------------------');
 
+//to go up from class(navitem/apple) to div(nav) it would be a parentNode
+//to go down from div(nav) to class(apple) it would be childNodes????
 
-
+    var apple = document.querySelectorAll('#nav li a')[2];
+    console.log('Link:', apple);
+    console.log('1 parentNode:', apple.parentNode);
+    console.log('2 parentNodes:', apple.parentNode.parentNode);
+    console.log(('ChildNodes:', apple.parentNode.parentNode.parentNode).childNodes);
+    console.log(('Sibling:', apple.parentNode.parentNode.parentNode).nextSibling);
 
 /*
 	==================================================================
@@ -339,7 +457,26 @@ console.log('------------ querySelectorAll -------------------');
         attr = href, src, class
 */
 
+//Getting Link1 to go to FullSail.com
+    var navLinks = document.querySelectorAll('#nav li');//looking for href tag with pd# 1 to replace w/ fullsail.com
 
+
+    for(var i= 0, max=navLinks.length; i<max; i++){/*since all our li's are selected, we need to setup a loop to
+     filter through each li */
+        /*this is going to find all the href tags, then loop through all the navLinks[i].Look at the 1st child.
+         cuz we need to look at the anchor link. Use the getAttribute method and go to the href and get
+         that information */
+        var href = navLinks[i].firstChild.getAttribute('href');
+        console.log('Manipulation HREF:', href);
+
+        //find pd# 1
+        if (href === '#1'){//if href is = #1, lets run the code
+            var href2 = navLinks[i].firstChild;//
+            console.log(href2);
+
+            href2.setAttribute('href', 'http://www.fullsail.com');
+        };
+    };
 
 /*
 	==================================================================
@@ -357,9 +494,65 @@ console.log('------------ querySelectorAll -------------------');
 
 console.log('------------ Manipulating CSS Classes -------------------');
 
+    var navLinks = document.querySelectorAll('#nav li');
 
-/*
-	==================================================================
+    for(var i= 0, max=navLinks.length; i<max; i++){
+        var href = navLinks[i].firstChild.getAttribute('href');
+        console.log('Manipulation HREF:', href);
+
+        if (href === '#1'){
+            var href2 = navLinks[i].firstChild;
+            console.log(href2);
+
+            href2.setAttribute('href', 'http://www.fullsail.com');
+        };
+
+       var aClass = navLinks[i].firstChild.getAttribute('class');/*telling var to use a navLinks selector.
+        Then we're telling it to go to the 1st Child (which if we're at the NavLi area if we go to the firstChild it
+         should go anchor link also known as <a tag>. While sitting on the <a tag> we need to get the
+         attribute <class>*/
+        console.log('Manipulation CLASS:', aClass);
+
+        navLinks[i].firstChild.setAttribute('class','navitem active');/*set the class attribute to navitem active
+         and we're targeting the navLink [i] which is in the for loop. telling it to go ahead and pull the 1st
+         child which is the anchor link and go ahead and set the attribute. The attribute that we're setting is
+          the class attribute and setting it to navitem active. Notice when you have selected one of the links,
+          the color changes to white and stays that color too.*/
+
+    };
+ console.log('------------ Manipulating HTML -------------------');
+
+    var navLinks = document.querySelectorAll('#nav li');
+
+    for(var i= 0, max=navLinks.length; i<max; i++){
+        var href = navLinks[i].firstChild.getAttribute('href');
+        console.log('Manipulation HREF:', href);
+
+        if (href === '#1'){
+            var href2 = navLinks[i].firstChild;
+            console.log(href2);
+
+            href2.setAttribute('href', 'http://www.fullsail.com');
+        };
+        navLinks[i].firstChild.setAttribute('href','http://google.com');/* Use the navLinks, [i] is the index
+         firstChild represent the anchor link, <a> tag. In the setAttribute we're telling it to target the href and
+         then we're setting the value to google.com. */
+    };
+
+    console.log('------------ More Examples on Manipulating HTML -------------------');
+
+    var navLinks = document.querySelectorAll('#nav a');
+    console.log(navLinks[1].innerHTML);//returns as Link 2, we want to change its name
+
+    //navLinks[1].innerHTML = 'This link rocks!'//change the name of the link to This link rocks
+
+    //However, what if we wanted to setup a click-me button to each link...
+    for(var i = 0, max = navLinks.length; i<max; i++){
+        navLinks[i].innerHTML = 'click me '+ i;
+    };
+
+    /*
+    ==================================================================
 	Replacing an HTML container with new HTML
 	------------------------------------------------------------------
 		- In a later project, you are building a gallery. 
@@ -368,8 +561,8 @@ console.log('------------ Manipulating CSS Classes -------------------');
 
 Sample Link: http://www.instructables.com/files/deriv/FJI/WGSW/FPIUQQ3K/FJIWGSWFPIUQQ3K.MEDIUM.jpg
 */
-
-
+   var bigImage = document.querySelector('#contentPreview img');
+   bigImage.setAttribute('src','http://www.instructables.com/files/deriv/FJI/WGSW/FPIUQQ3K/FJIWGSWFPIUQQ3K.MEDIUM.jpg')
 
 /*
 	==================================================================
@@ -401,19 +594,20 @@ Sample Link: http://www.instructables.com/files/deriv/FJI/WGSW/FPIUQQ3K/FJIWGSWF
 		- The function's CONTEXT (this) is the html element.	
 */
 console.log('------------ DOM Events Ex 1-------------------');
+// this just console.log's when a click occurs
 
 var nav = document.querySelectorAll('#nav li a');
 
+    for(var i = 0, max = nav.length; i < max; i++){
+        console.log(nav[i]);
 
-/*
-// this just console.log's when a click occurs
+        nav[i].onclick = function(e){
+            console.log(e);
 
-
-
-
-
-*/
-
+            e.preventDefault();
+            return false;
+        };
+    };
 
 /*
 	==================================================================
@@ -435,31 +629,46 @@ var nav = document.querySelectorAll('#nav li a');
 								browser’s default action (such as following an href or the <form> action)
 								- Prevent a submit button from submitting a form
    								- Prevent a link from following the URL
-					
-
 */
-
-
 console.log('------------ DOM Events Ex 2 -------------------');
-/*
 // this example changes the clicked link to the active class
 
+    for(var i = 0, max = nav.length; i < max; i++){
 
+        nav[i].onclick = function(e){
 
+            for(var ii = 0, max2 = nav.length; ii < max2; ii++){
+                nav[ii].setAttribute('class','navitem');
+            };
+            console.log(this);
+            this.setAttribute('class', 'navitem active');
 
-*/ 
-
-
+            e.preventDefault();
+            return false;
+        };
+    };
 
 console.log('------------ DOM Events Ex 3 -------------------');
-/*
+
 // a more efficient way to do the above
 
+    nav[0].setAttribute('class', 'navitem active');
 
+    for(var i = 0, max = nav.length; i < max; i++){
 
+        nav[i].onclick = function(e){
 
+//          for(var ii = 0, max2 = nav.length; ii < max2; ii++){
+//          nav[ii].setAttribute('class','navitem');
+//          };
+            document.querySelector('#nav li a.active').setAttribute('class','navitem');
 
-*/
+            console.log(this);
+            this.setAttribute('class', 'navitem active');
 
+            e.preventDefault();
+            return false;
+        };
+    };
 
 })(); // end wrapper

@@ -377,21 +377,75 @@ console.log('------ Debugging ----------');
 */
 console.log("---------- Scope & Context ----------------");
 
+    var myctr = 0;
+
+    var myCounter1 = function(newct){//newct is being passed as 5
+
+        myctr = newct + 10;
+        console.log('function:', myctr);
+    };
+
+    myCounter1(5); //myCounter1 calls the function and passes parameter of 5
+    console.log('after function myctr:', myctr);
 
 
+console.log("---------- Ex of Local Scope & Context ----------------");
 
+    var myglobal = 2;//myglobal is global outside the function
 
-/*
-	===================================================================
-	Closure
+    var myFunction =function(parameter){//newct is being passed as 5
 
-	- Whenever you see the function keyword within another function, the inner function 
-		has access to variables of the outer function.
-*/
+        var myglobal = parameter + 10; //var myglobal is local inside the function
+        console.log('function:', myglobal);
+    };
+
+    myFunction(5); //myCounter1 calls the function and passes parameter of 5
+    console.log('after function myglobal:', myglobal);
+    /*
+        ===================================================================
+        Closure
+
+        - Whenever you see the function keyword within another function, the inner function
+            has access to variables of the outer function.
+    */
 
     console.log("---------- Closure ----------------");
 
+    var fname = 'James'; //global variables last & survive throughout the program
 
+    var nameFN = function(var1){ //if function defines local variable...
+        var firstName = var1;    //local variables survive as long as the function executes
+        var lastName = "Bond";   //once run, it no longer works
+        var name = firstName + '' + lastName; //concat
+
+        console.log('first & last name: =', name);
+        return name;
+    };
+
+    var fullName = nameFN(fname); //call to the function & passing an argument of James
+                                  //once function runs, it will go thru call & return name
+    console.log('returned full name: =', fullName);
+    console.log('var fname: = ', fname);
+    //console.log('first name: = ', firstName);
+    //console.log('last name: =', lastName);
+
+    var dog = 'Ozark'; //global variables last & survive throughout the program
+
+    var pet = function(petName){ //if function defines local variable...
+        var dogName = petName;    //local variables survive as long as the function executes
+        var breed = 'Aussie';   //once run, it no longer works
+        var petInfo = dogName + ' is an ' + breed; //concat
+
+        var closureFN = function(){
+        console.log('name & age of dog:=' , petInfo);
+        }
+        return closureFN;
+    };
+    var fullDogInfo = pet(dog); //call to the function & passing an argument of James
+    //once function runs, it will go thru call & return name
+    //console.log('returned petInfo:=' ,fullDogInfo);
+    //console.log('var dog: = ', dog);
+    fullDogInfo(); //fullDogInfo is not a function but a call
 
     /*
     Definition:  Closure:
@@ -420,5 +474,21 @@ console.log("---------- Scope & Context ----------------");
                   called a closure.  Simply accessing variables outside of its
                   immediate lexical scope creates a closure.
     */
+
+    console.log("---------- More Closure Examples ----------------");
+
+   a = (function(){
+       var privateFunction = function(){
+           alert('hello');
+       }
+
+       return{
+           publicFunction:function(){
+               privateFunction();
+           }
+       }
+   })();
+
+    a.publicFunction();
 
 })(); // end wrapper
